@@ -1,0 +1,14 @@
+@model recipes.ViewModels.Session.PanelViewModel
+@{
+    ViewBag.Title = "User panel";
+}
+
+@if (Model.Email != null && Model.Username != null)
+{
+    <h1>@Model.Username</h1>
+    <h3>@Model.Email</h3>
+}
+else
+{
+    <h1>You need to sign in</h1>
+}

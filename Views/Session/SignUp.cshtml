@@ -1,0 +1,21 @@
+@model recipes.ViewModels.Session.SignUpViewModel
+@{
+    ViewBag.Title = "Sign up";
+}
+
+<h1>Sign up</h1>
+@using (Html.BeginForm("SignUp", "Session", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @Html.LabelFor(m => m.Username, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+
+    <input type="submit" value="Send" class="btn btn-primary">
+}
