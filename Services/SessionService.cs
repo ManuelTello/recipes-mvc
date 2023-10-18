@@ -17,7 +17,7 @@ namespace recipes.Services
 
         public async Task<Operation<User>> FetchUser(SignInViewModel model)
         {
-            User? user = await this.Repository.FetchUserByName(model.Username);
+            User? user = await this.Repository.FetchUser(model.Username, model.Password);
             Operation<User> operation;
 
             if (user == null)

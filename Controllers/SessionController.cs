@@ -24,14 +24,16 @@ namespace recipes.Controllers
         [Route("{controller}/signin")]
         public IActionResult SignIn()
         {
-            return View();
+            SignInViewModel model = new SignInViewModel();
+            return View(model);
         }
 
         [HttpGet]
         [Route("{controller}/signup")]
         public IActionResult SignUp()
         {
-            return View();
+            SignUpViewModel model = new SignUpViewModel();
+            return View(model);
         }
 
         [HttpPost]
@@ -122,7 +124,6 @@ namespace recipes.Controllers
 
             return View("Panel", model);
         }
-
 
         [HttpGet]
         [Route("{controller}/logout")]

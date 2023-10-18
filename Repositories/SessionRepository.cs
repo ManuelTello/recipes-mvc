@@ -24,5 +24,11 @@ namespace recipes.Repositories
             User? user = await this.Context.Users.SingleOrDefaultAsync(u => u.Username == username);
             return user;
         }
+
+        public async Task<User?> FetchUser(string username, string password)
+        {
+            User? user = await this.Context.Users.SingleOrDefaultAsync(u => u.Username == username && u.Password == password);
+            return user;
+        }
     }
 }
