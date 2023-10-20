@@ -1,0 +1,35 @@
+@model recipes.ViewModels.Recipe.RecipeViewModel;
+@{
+    ViewBag.Title = Model == null ? "Not found" : Model.Title;
+}
+
+@if (Model != null)
+{
+    <h1>@Model.Title</h1>
+    <h2>Created by: @Model.Username</h2>
+    <h5>Estimated cooking time: @Model.CookingTime minutes</h5>
+    <b>Date created: </b>
+
+    <i>@Model.DateCreated</i>
+    <b>Difficulty: <h6>@Model.Difficulty</h6></b>
+
+    <b>Steps: </b>
+    <ul>
+        @foreach (string step in Model.Steps)
+        {
+            <li>@step</li>
+        }
+    </ul>
+
+    <b>Ingredients: </b>
+    <ul>
+        @foreach (string ingredient in Model.Ingredients)
+        {
+            <li>@ingredient</li>
+        }
+    </ul>
+}
+else
+{
+    <h1>The recipe you'r trying to find doesn't exist</h1>
+}

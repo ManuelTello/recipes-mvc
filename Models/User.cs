@@ -17,5 +17,7 @@ namespace recipes.Models
 
         [Column(name: "password")]
         public string Password { get; set; } = string.Empty;
+
+        public ICollection<Recipe> Recipes { get; set; } = new List<Recipe>();
     }
 }

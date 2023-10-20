@@ -28,8 +28,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home"
                                 asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Recipe"
+                                asp-action="Search">Recipes</a>
+                        </li>
                         @if (Context.Session.GetString("AspSession") == null)
                         {
+
                             <li>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="SignIn">Sign
                                     in</a>
@@ -48,6 +53,10 @@
                             <li>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="LogOut">Log
                                     out</a>
+                            </li>
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Recipe"
+                                    asp-action="AddRecipeValidation">Add recipe</a>
                             </li>
                         }
                     </ul>

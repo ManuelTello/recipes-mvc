@@ -1,0 +1,25 @@
+TODO:
+    Add interfaces for repository and service.
+    -
+        Add mapper and common service singletone.
+        In the Mapper change common to be a wide class accesible atribute.
+    
+    Add remove step/ingredient in the add recipe view.
+    In the search add multiple refined filters.
+    In the user section add so you can recover the account if lost.
+    Add a confirmation email after being signed up.
+    Change the session validation using viewmodels instead of using it inside the view.
+    Add hashing to passwords.
+    Add users panel where you can see their recipes and basic user information.
+
+
+FIXME:
+    Change common methods to use specific types, not dynamic ones.
+//  In the login the password gets ignored.
+
+IDEA:
+    Add country based recipes.
+    The recipe show if its an entry, first plate or dessert.
+    How many people can eat with this recipe.
+    Multiple categories for the recipe.
+    Add a rating system for each recipe.

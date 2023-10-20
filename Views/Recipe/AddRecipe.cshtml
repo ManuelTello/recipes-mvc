@@ -1,0 +1,60 @@
+@model recipes.ViewModels.Recipe.AddRecipeViewModel
+@using recipes.ViewModels.Recipe
+@{
+    ViewBag.Title = "Add recipe";
+    string Username = Context.Session.GetString("AspSession");
+}
+
+@using (Html.BeginForm("AddRecipeValidation", "Recipe", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.Title, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+
+    <br>
+
+    @Html.LabelFor(m => m.CookingTime, new { @class = "form-label" })
+    <input type="number" name="CookingTime" value=1>
+    <br>
+    @Html.ValidationMessageFor(m => m.CookingTime, "", new { @class = "text-danger" })
+
+    <br>
+
+    @Html.LabelFor(m => m.Difficulty, new { @class = "form-label" })
+    @Html.DropDownListFor(m => m.Difficulty, new SelectList(Enum.GetValues(typeof(Difficulty))))
+    @Html.ValidationMessageFor(m => m.Difficulty, "", new { @class = "text-danger" })
+
+    <br>
+
+    <div id="stepsdiv">
+        @Html.LabelFor(m => m.Steps, new { @class = "form-label" })
+        @if (Model.Steps != null)
+        {
+            foreach (string? step in Model.Steps)
+            {
+                if (step != null)
+                    @Html.TextBoxFor(m => m.Steps, new { @class = "form-control", @value = step })
+            }
+        }
+        @Html.ValidationMessageFor(m => m.Steps, "", new { @class = "text-danger" })
+        <br>
+        <input type="button" value="+" id="addnewstep">
+    </div>
+
+    <div id="ingdiv">
+        @Html.LabelFor(m => m.Ingredients, new { @class = "form-label" })
+        @if (Model.Ingredients != null)
+        {
+            foreach (string? ingredient in Model.Ingredients)
+            {
+                if (ingredient != null)
+                    @Html.TextBoxFor(m => m.Ingredients, new { @class = "form-control", @value = ingredient })
+            }
+        }
+        @Html.ValidationMessageFor(m => m.Ingredients, "", new { @class = "text-danger" })
+        <br>
+        <input type="button" value="+" id="addnewing">
+    </div>
+
+    <input type="submit" value="Send" class="btn btn-primary">
+}

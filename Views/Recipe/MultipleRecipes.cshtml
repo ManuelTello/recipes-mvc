@@ -1,0 +1,47 @@
+@model recipes.ViewModels.Recipe.MultipleReciepsViewModel;
+@using recipes.ViewModels.Recipe;
+@{
+    ViewBag.Title = "Recipes";
+}
+
+
+@using (Html.BeginForm("Search", "Recipe", FormMethod.Get))
+{
+    @Html.LabelFor(m => m.Title, new { @class = "form-label" })
+    @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+
+    <label class="form-label" for="CookingTimeMin">Cooking time min</label>
+    <input type="number" name="CookingTimeMin" class="form-control">
+    <label class="form-label" for="CookingTimeMax">Cooking time max</label>
+    <input type="number" name="CookingTimeMax" class="form-control">
+
+    @Html.LabelFor(m => m.TimeStampMin, new { @class = "form-label" })
+    @Html.EditorFor(m => m.TimeStampMin, new { @class = "form-control" })
+    @Html.LabelFor(m => m.TimeStampMax, new { @class = "form-label" })
+    @Html.EditorFor(m => m.TimeStampMax, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.Difficulty, new { @class = "form-label" })
+    @Html.DropDownListFor(m => m.Difficulty, new SelectList(Enum.GetValues(typeof(Difficulty))), "", new
+        {
+            @class
+        = "from-control"
+        })
+
+    <input type="submit" value="search" btn btn-primary>
+}
+
+@if (Model.Recipes == null || Model.Recipes.Count == 0)
+{
+    <h1>Nothing to show.</h1>
+}
+else
+{
+    foreach (RecipeViewModel recipe in Model.Recipes)
+    {
+        <h1>@recipe.Title</h1>
+        <h2>@recipe.CookingTime</h2>
+        <h3>@recipe.Username</h3>
+
+        <br>
+    }
+}
