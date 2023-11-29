@@ -11,6 +11,7 @@ TODO:
     Change the session validation using viewmodels instead of using it inside the view.
     Add hashing to passwords.
     Add users panel where you can see their recipes and basic user information.
+    In the global navbar add a small user manu for logout, view general information and so.
 
 
 FIXME:
